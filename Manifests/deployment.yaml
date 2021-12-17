@@ -3,11 +3,12 @@ kind: Deployment
 metadata:
   name: {{ include "webfrontend.fullname" . }}
   labels:
-    '{{- include "webfrontend.labels" . | nindent 4 }}'
-spec: '{{- if not .Values.autoscaling.enabled }}'
+    {{- include "webfrontend.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
-   selector:
+  selector:
     matchLabels:
       {{- include "webfrontend.selectorLabels" . | nindent 6 }}
   template:
