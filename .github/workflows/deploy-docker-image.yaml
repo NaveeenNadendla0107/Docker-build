@@ -68,9 +68,9 @@ jobs:
            manifests: |
             manifests/deployment.yaml
             manifests/service.yaml
-           repository: <blackbirddev>.azurecr.io/<webfrontend>
-           tag: <v1>
-           pullPolicy: IfNotPresent
+           #repository: <blackbirddev>.azurecr.io/<webfrontend>
+           #tag: <v1>
+           #pullPolicy: IfNotPresent
 
            images: |
              ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
