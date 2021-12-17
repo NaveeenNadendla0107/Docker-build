@@ -66,8 +66,8 @@ jobs:
           with:
            manifests: |
             ${{ steps.bake.outputs.manifestsBundle }}
-            manifests/deployment.yml
-            manifests/service.yml
+            Docker-build/deployment.yml
+            Docker-build/service.yml
            
            images: |
              ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
