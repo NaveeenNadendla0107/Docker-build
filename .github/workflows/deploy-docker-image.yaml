@@ -21,8 +21,8 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/aks-helloworld:${{ github.sha }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/aks-helloworld:${{ github.sha }}
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/webfrontend:${{ github.sha }}
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/webfrontend:${{ github.sha }}
             
        # - name: 'Setup Kubectl"
           #uses: azure/Setup-login@v1
@@ -52,12 +52,12 @@ jobs:
        
           
              
-        - name: 'Helm Bake'
-          uses: azure/k8s-bake@v1
-          with:
-           renderEngine: kustomize
-           kustomizationPath: ./Deploy/
-           id: bake
+       # - name: 'Helm Bake'
+        #  uses: azure/k8s-bake@v1
+         # with:
+         #  renderEngine: kustomize
+         #  kustomizationPath: ./Deploy/
+          # id: bake
      
         #- name: 'Deploy app to AKS'
           #uses: azure/k8s-deploy@v1
