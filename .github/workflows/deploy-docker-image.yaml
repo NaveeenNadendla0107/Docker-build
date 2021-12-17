@@ -27,8 +27,7 @@ jobs:
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/webfrontend:${{ github.sha }}
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/webfrontend:${{ github.sha }}
             
-       # - name: 'Setup Kubectl"
-          #uses: azure/Setup-login@v1
+      
           
         - name: 'aks Set context'
           uses: azure/aks-set-context@v1
@@ -79,4 +78,5 @@ jobs:
       #  namespace: ${{ env.NAMESPACE }}
         
 
-
+ # - name: 'Setup Kubectl"
+          #uses: azure/Setup-login@v1
