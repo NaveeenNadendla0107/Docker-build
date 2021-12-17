@@ -62,19 +62,18 @@ jobs:
          #  kustomizationPath: ./Deploy/
           # id: bake
      
-        #- name: 'Deploy app to AKS'
-          #uses: azure/k8s-deploy@v1
-          #with:
-          # manifests: |
-          
-             # ./Deploy/service.yaml
-             # ./Deploy/deployment.yaml
- #manifests: ${{ steps.bake.outputs.manifestsBundle }}
-          # images: |
-           # ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/aks-helloworld:${{ github.sha }}
-           # imagepullsecrets: |
-           # ${{ secrets.REGISTRY_LOGIN_SERVER}}-registry-connection
-           # action: deploy
+        - name: 'Deploy app to AKS'
+          uses: azure/k8s-deploy@v1
+          with:
+           repository: <blackbirddev>.azurecr.io/<webfrontend>
+           tag: <v1>
+           pullPolicy: IfNotPresent
+
+           images: |
+             ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
+           imagepullsecrets: |
+            ${{ secrets.REGISTRY_LOGIN_SERVER}}-registry-connection
+            action: deploy
   
        
        
