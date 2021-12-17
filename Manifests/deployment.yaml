@@ -5,10 +5,10 @@ metadata:
   labels:
     '{{- include "webfrontend.labels" . | nindent 4 }}'
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
-  selector:
+  '{{- if not .Values.autoscaling.enabled }}'
+   replicas: {{ .Values.replicaCount }}
+   {{- end }}
+   selector:
     matchLabels:
       {{- include "webfrontend.selectorLabels" . | nindent 6 }}
   template:
