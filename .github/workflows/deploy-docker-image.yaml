@@ -55,12 +55,12 @@ jobs:
        
           
              
-       # - name: 'Helm Bake'
-        #  uses: azure/k8s-bake@v1
-         # with:
-         #  renderEngine: kustomize
-         #  kustomizationPath: ./Deploy/
-          # id: bake
+        - name: 'Helm Bake'
+          uses: azure/k8s-bake@v1
+          with:
+           renderEngine: deploy helm
+           kustomizationPath: ./deploy helm/
+           id: bake
      
         - name: 'Deploy app to AKS'
           uses: azure/k8s-deploy@v1
