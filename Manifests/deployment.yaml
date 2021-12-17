@@ -4,10 +4,9 @@ metadata:
   name: {{ include "webfrontend.fullname" . }}
   labels:
     '{{- include "webfrontend.labels" . | nindent 4 }}'
-spec:
-  '{{- if not .Values.autoscaling.enabled }}'
-   replicas: {{ .Values.replicaCount }}
-   {{- end }}
+spec: '{{- if not .Values.autoscaling.enabled }}'
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
    selector:
     matchLabels:
       {{- include "webfrontend.selectorLabels" . | nindent 6 }}
