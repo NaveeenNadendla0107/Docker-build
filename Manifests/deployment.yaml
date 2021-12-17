@@ -7,8 +7,8 @@ metadata:
 spec:
   '{{- if not .Values.autoscaling.enabled }}'
   replicas: 
-      '{{ .Values.replicaCount }}'
-      '{{- end }}'
+      {{ .Values.replicaCount }}']
+      {{- end }}']
   selector:
     matchLabels:
       '{{- include "webfrontend.selectorLabels" . | nindent 6 }}'
