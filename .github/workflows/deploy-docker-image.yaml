@@ -59,7 +59,7 @@ jobs:
           uses: azure/k8s-bake@v1
           with:
            renderEngine: 'helm 3'
-           kustomizationPath: ./deploy helm/
+           helmChart: ./deploy helm/
            id: bake
      
         - name: 'Deploy app to AKS'
