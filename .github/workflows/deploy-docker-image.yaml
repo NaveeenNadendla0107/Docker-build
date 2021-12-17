@@ -66,8 +66,8 @@ jobs:
           uses: azure/k8s-deploy@v1
           with:
            manifests: |
-            manifests/deployment.yml
-            manifests/service.yml
+            manifests/Docker-build/deploy helm/templates/
+            manifests/Docker-build/deploy helm/templates/
            repository: <blackbirddev>.azurecr.io/<webfrontend>
            tag: <v1>
            pullPolicy: IfNotPresent
