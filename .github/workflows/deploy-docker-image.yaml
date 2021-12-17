@@ -58,7 +58,7 @@ jobs:
         - name: 'Helm Bake'
           uses: azure/k8s-bake@v1
           with:
-           renderEngine: deploy helm
+           renderEngine: 'helm3'
            kustomizationPath: ./deploy helm/
            id: bake
      
