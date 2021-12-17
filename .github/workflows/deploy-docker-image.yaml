@@ -66,7 +66,8 @@ jobs:
           uses: azure/k8s-deploy@v1
           with:
            manifests: |
-            manifests/Values.yml
+            manifests/deployment.yml
+            manifests/service.yml
            repository: <blackbirddev>.azurecr.io/<webfrontend>
            tag: <v1>
            pullPolicy: IfNotPresent
