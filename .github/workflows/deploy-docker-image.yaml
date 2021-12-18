@@ -65,8 +65,7 @@ jobs:
           uses: azure/k8s-deploy@v1
           with:
            Manifests: |
-             ./deploy helm/deployment.yaml
-             ./deploy helm/service.yaml
+             ./deploy helm/
            
            images: |
              ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
