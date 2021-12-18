@@ -65,9 +65,9 @@ jobs:
           uses: azure/k8s-deploy@v1
           with:
            Manifests: |
-             ${{ steps.bake.outputs.manifestsBundle }}
-             deploy helm/deployment.yaml
-             deploy helm/service.yaml
+            # ${{ steps.bake.outputs.manifestsBundle }}
+             ./deploy helm//deployment.yaml
+             ./deploy helm//service.yaml
            
            images: |
              ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
