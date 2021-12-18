@@ -16,7 +16,7 @@ spec:
 replicas: 
      {
      { 
-     .Values.replicaCount 
+      .Values.replicaCount 
      }
      }
   {
