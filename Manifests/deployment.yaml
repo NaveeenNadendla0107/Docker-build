@@ -19,8 +19,7 @@ replicas:
      .Values.replicaCount 
      }
      }
-     {
-  {- end } 
+     {{- end } 
   }
   selector:
     matchLabels:
