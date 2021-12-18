@@ -16,13 +16,11 @@ spec:
 replicas: 
      {
      { 
-      .Values.replicaCount 
+     .Values.replicaCount 
      }
      }
-  {
-  {
-  - end
-  }
+     {
+  {- end } 
   }
   selector:
     matchLabels:
