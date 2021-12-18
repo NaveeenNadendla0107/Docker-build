@@ -65,7 +65,6 @@ jobs:
           uses: azure/k8s-deploy@v1
           with:
            Manifests: |
-            # ${{ steps.bake.outputs.manifestsBundle }}
              ./deploy helm//deployment.yaml
              ./deploy helm//service.yaml
            
@@ -80,6 +79,7 @@ jobs:
           #imagepullsecrets: |
            # ${{ secrets.REGISTRY_LOGIN_SERVER }}
       #  namespace: ${{ env.NAMESPACE }}
+      # ${{ steps.bake.outputs.manifestsBundle }}
         
 
  # - name: 'Setup Kubectl"
