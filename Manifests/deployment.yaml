@@ -4,7 +4,7 @@ metadata:
   name: {{ include "webfrontend.fullname" . }}
   labels:
     {
-    {- include "webfrontend.labels" . | nindent 4 }
+    { include "webfrontend.labels" . | nindent 4 }
     }
 spec:
   {{- if not .Values.autoscaling.enabled }}
