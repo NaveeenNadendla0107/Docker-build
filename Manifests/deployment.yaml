@@ -10,7 +10,7 @@ spec:
   {{ if not .Values.autoscaling.enabled }}
 replicas: 
   {{ .Values.replicaCount }}
-  {{ end }}
+   {{ end }}
   selector:
     matchLabels:
       {{- include "webfrontend.selectorLabels" . | nindent 6 }}
