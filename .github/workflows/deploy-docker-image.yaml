@@ -64,7 +64,7 @@ jobs:
             #replicas:2
             #helm-version: 'latest' 
             #id: bakec
-           renderEngine: 'helm'
+           renderEngine: 'helm2'
            helmChart: './webfrontend/' 
            overrideFiles: './webfrontend/values-override.yaml'
            overrides: |     
