@@ -59,7 +59,11 @@ jobs:
           with:
            renderEngine: 'helm2'
            helmChart: ./deploy helm/
-           id: bake
+           overrideFiles: './deploy helm/values.yaml'
+           overrides: |     
+            replicas:2
+            helm-version: 'latest' 
+            id: bake
      
         - name: 'Deploy app to AKS'
           uses: azure/k8s-deploy@v1
