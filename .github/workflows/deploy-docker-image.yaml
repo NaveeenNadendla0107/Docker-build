@@ -51,22 +51,19 @@ jobs:
            container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
            secret-name: ${{ secrets.REGISTRY_LOGIN_SERVER }}-registry-connection     
              
-        - name: 'Helm Bake'
-          uses: azure/k8s-bake@v1
-          with:
-           renderEngine: 'helm2'
-           helmChart: ./deploy helm/
-           helm-version: 'latest' 
-           id: bake 
+        
       
         - name: 'Deploy app to AKS'
           uses: azure/k8s-deploy@v1
           with:
-           images: |
+            Manifests: |
+             Manifests/deployment.yml
+             
+            images: |
              ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
-           imagepullsecrets: |
-             ${{ secrets.REGISTRY_LOGIN_SERVER}}-registry-connection
-           action: deploy
+            imagepullsecrets: |
+              ${{ secrets.REGISTRY_LOGIN_SERVER}}-registry-connection
+            action: deploy
   
        
        
@@ -78,3 +75,11 @@ jobs:
 
  # - name: 'Setup Kubectl"
           #uses: azure/Setup-login@v1
+          
+         # - name: 'Helm Bake'
+          #uses: azure/k8s-bake@v1
+          #with:
+           #renderEngine: 'helm2'
+           #helmChart: ./deploy helm/
+           #helm-version: 'latest' 
+           #id: bake 
