@@ -66,8 +66,7 @@ jobs:
           with:
            Manifests: |
             Manifests/deployment.yml
-            #Manifests/service.yaml
-           
+            
            images: |
              ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
            imagepullsecrets: |
