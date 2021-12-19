@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webfrontend-{{.Release.Name}}
+  name: webfrontend
 spec:
   replicas: 1
   selector:
-      app: webfrontend-{{.Release.Name}}
+      app: webfrontend
   template:
     metadata:
       labels:
-        app: webfrontend-{{.Release.Name}}
+        app: webfrontend
     spec:
       containers:
-      - name: webfrontend-{{.Release.Name}}
+      - name: webfrontend
         image: blackbirddev.azurecr.io/webfrontend:v1
         ports:
         - containerPort: 80
