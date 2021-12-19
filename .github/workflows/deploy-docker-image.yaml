@@ -68,14 +68,12 @@ jobs:
         - name: 'Deploy app to AKS'
           uses: azure/k8s-deploy@v1
           with:
-           Manifests: |
-            Manifests/deployment.yml
-            
-           images: |
+            manifests: ${{ steps.bake.outputs.manifestsBundle }}
+            images: |
              ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/webfrontend:${{ github.sha }}
-           imagepullsecrets: |
+            imagepullsecrets: |
              ${{ secrets.REGISTRY_LOGIN_SERVER}}-registry-connection
-           action: deploy
+            action: deploy
   
        
        
