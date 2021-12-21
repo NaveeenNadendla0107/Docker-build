@@ -1,5 +1,11 @@
-on: [push]
 name: Linux_Container_Workflow
+on: 
+ workflow_dispatch:
+   inputs:
+     image:
+      description: 'image'
+      required: true
+      default: 'first'
 
 jobs:
     build-and-deploy:
@@ -21,8 +27,8 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/aks-helloworld:${{ github.sha }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/aks-helloworld:${{ github.sha }}
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/image: ${{ github.event.inputs.image }}:${{ github.sha }}
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/image: ${{ github.event.inputs.image }}:${{ github.sha }}
             
        # - name: 'Setup Kubectl"
           #uses: azure/Setup-login@v1
