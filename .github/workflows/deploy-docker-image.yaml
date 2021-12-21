@@ -47,7 +47,7 @@ jobs:
           with:
            version: v3.3.1
            
-        - name: 'create pull secret' 
+        - name: create pull secret
           uses: azure/k8s-create-secret@v1
           with:
            container-registry-url: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
